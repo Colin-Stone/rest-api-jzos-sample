@@ -19,6 +19,7 @@
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
+    <welcome-file>/*</welcome-file>
   </welcome-file-list>
   <security-constraint>
     <web-resource-collection>
@@ -26,20 +27,20 @@
       <url-pattern>/*</url-pattern>
       <http-method-omission>OPTIONS</http-method-omission>
     </web-resource-collection>
-    <auth-constraint>
+    <!-- <auth-constraint>
       <role-name>izuUsers</role-name>
-    </auth-constraint>
+    </auth-constraint> -->
     <user-data-constraint>
       <transport-guarantee>CONFIDENTIAL</transport-guarantee>
     </user-data-constraint>
   </security-constraint>
   <login-config>
     <auth-method>BASIC</auth-method>
-    <realm-name>z/OSMF Authorized User Credentials</realm-name>
+    <!-- <realm-name>z/OSMF Authorized User Credentials</realm-name> -->
   </login-config>
-  <env-entry>
+  <!-- <env-entry>
     <env-entry-name>com.ibm.websphere.security.SyncToOSThread</env-entry-name>
     <env-entry-type>java.lang.Boolean</env-entry-type>
     <env-entry-value>true</env-entry-value>
-  </env-entry>
+  </env-entry> -->
 </web-app>

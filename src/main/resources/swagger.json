@@ -1,0 +1,256 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "JZOS API",
+        "version": "1.0.0",
+        "title": "JZOS API"
+    },
+    "basePath": "/jzos",
+    "tags": [
+        {
+            "name": "Sample microservice : Java Environment variables"
+        }
+    ],
+    "definitions": {
+        "NameValueParameter": {
+            "type": "object",
+            "required": [
+                "name",
+                "value"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "TEST_HOME",
+                    "description": "The name of the environment variable"
+                },
+                "value": {
+                    "type": "string",
+                    "example": "/java/J8.0_64",
+                    "description": "The value to be assigned to the environment variable"
+                }
+            },
+            "description": "Body representing the name and value of an environment variable"
+        },
+        "NameValueResponse": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "ValueParameter": {
+            "type": "object",
+            "required": [
+                "value"
+            ],
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "example": "/java/J8.0_64",
+                    "description": "The value assigned to an environment variable"
+                }
+            },
+            "description": "Body representing the value of an environment variable"
+        }
+    },
+    "paths": {
+        "/jzos/environmentVariable": {
+            "get": {
+                "tags": [
+                    "Sample microservice : Java Environment variables"
+                ],
+                "summary": "Gets a list of environment variables",
+                "description": "This API uses JZOS to retrieve a JSON formatted list of .",
+                "operationId": "getAll",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/NameValueParameter"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Sample microservice : Java Environment variables"
+                ],
+                "summary": "Creates a new environment variables",
+                "description": "This API uses JZOS to perform the process.",
+                "operationId": "add",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Name and Value of an environmental variable",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/NameValueParameter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Environment variable created",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/NameValueParameter"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/jzos/environmentVariable/{attribute}": {
+            "get": {
+                "tags": [
+                    "Sample microservice : Java Environment variables"
+                ],
+                "summary": "Gets a specific environment variables",
+                "description": "This API uses JZOS to perform the process.",
+                "operationId": "getOne",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "attribute",
+                        "in": "path",
+                        "description": "Name of an environmental variable",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/NameValueResponse"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Environment variable does not exist"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Sample microservice : Java Environment variables"
+                ],
+                "summary": "Updates the value of an existing environment variable",
+                "description": "This API uses JZOS to perform the process.",
+                "operationId": "update",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "attribute",
+                        "in": "path",
+                        "description": "Environment variable name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Value of an environmental variable",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/ValueParameter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated the environment variable"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sample microservice : Java Environment variables"
+                ],
+                "summary": "Deletes an existing environment variable",
+                "description": "This API uses JZOS to delete the environment variable.",
+                "operationId": "delete1",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "attribute",
+                        "in": "path",
+                        "description": "Name of an environmental variable",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Deleted the environment variable"
+                    }
+                }
+            }
+        },
+        "/jzos/pds/{attribute}": {
+            "get": {
+                "tags": [
+                    "Sample microservice : Java Environment variables"
+                ],
+                "summary": "Gets members of a PDS",
+                "description": "This API uses JZOS to retrieve the members of a PDS",
+                "operationId": "getPDSList_0",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "attribute",
+                        "in": "path",
+                        "description": "Name of PDS",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {}
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error accessing PDS"
+                    }
+                }
+            }
+        }
+    }
+}
