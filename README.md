@@ -1,5 +1,7 @@
 # JZOS Sample
 
+Branch Specific version that shows how to incorporate into API Mediation layer 
+
 The primary purpose of this project is to act as a sample microservice that demonstrates how RestAPI's can be used to surface z/OS functionality for more general availability of the function.
 
 The sample provides access to Java System environmental variables allowing users CRUD types access to items such as "JAVA_HOME".
