@@ -116,22 +116,10 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.ibm</groupId>
-			<artifactId>isfjcall</artifactId>
-			<version>1.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
 			<groupId>net.wasdev.maven.tools.targets</groupId>
 			<artifactId>java-specs</artifactId>
 			<version>RELEASE</version>
 			<type>pom</type>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.ibm</groupId>
-			<artifactId>JSON4J</artifactId>
-			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
