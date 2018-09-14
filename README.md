@@ -12,7 +12,7 @@ The sample presents four functions centered around the notional "environmental v
 The project is built using Maven and Testing and Code Coverage plugins are configured to provide developers with a start point for their own projects.
 
 * Requirements
-To build this project it is necessary to configure access to a Maven based repository that contains both JZos.jar and Atlas utilities.jar.
+To build this project it is necessary to configure access to a Maven based repository that contains JZos.jar.
 * JZos.jar provides the base functionality that is being surfaced
 * Atlas utilities.jar provides common functionality used in Atlas that includes logging, HTTP and JSON for example.
 * Building
